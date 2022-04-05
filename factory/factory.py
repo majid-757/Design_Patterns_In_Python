@@ -7,19 +7,32 @@ class A:
 
 class B:
     def edit(self, file):
-        if file.format == 'json':
-            print(f'Editing Json File .... {file.name}')
+        edit = self._get_edit(file)
+        return edit(file)
 
-        elif file.format == 'xml':
-            print(f'Editing Xml File .... {file.name}')
+    def _get_edit(self, file):
 
-        else:
-            raise ValueError('Sorry.....')
+        def edit(self, file):
+            if file.format == 'json':
+                return self.json_edit
+
+            elif file.format == 'xml':
+                return self.xml_edit
+
+            else:
+                raise ValueError('Sorry.....')
+
+    def json_edit(self, file):
+        print(f'Editing Json File .... {file.name}')
 
 
+    def xml_edit(self, file):
+        print(f'Editing Xml File .... {file.name}')
 
 
 a1 = A('majid', 'json')
 b1 = B()
 
 b1.edit(a1)
+
+
