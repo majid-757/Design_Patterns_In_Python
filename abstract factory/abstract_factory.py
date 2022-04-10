@@ -31,6 +31,65 @@ class Bmw(Car):
         return M2()
 
 
+#---------------------------------------------
+
+class Suv(ABC):
+    @abstractmethod
+    def creating_suv(self):
+        pass
+
+
+
+class Coupe(ABC):
+    @abstractmethod
+    def creating_coupe(self):
+        pass
+
+#---------------------------------------------
+
+class Gla(Suv):
+    def creating_suv(self):
+        print('This is your suv benz gla ....')
+
+
+class X1(Suv):
+    def creating_suv(self):
+        print('This is your suv bmw x1 ....')
+
+#---------------------------------------------
+
+class Cls(Coupe):
+    def creating_coupe(self):
+        print('This is your coupe benz cls ....')
+
+
+
+class M2(Coupe):
+    def creating_coupe(self):
+        print('This is your coupe bmw m2 ....')
+
+#---------------------------------------------
+
+
+
+def clientSuv(order):
+    suv = order.call_suv()
+    suv.creating_suv()
+
+
+
+def clientCoupe(order):
+    coupe = order.call_coupe()
+    coupe.creating_coupe()
+
+
+
+clientSuv(Bmw())
+
+
+
+
+
 
 
 
