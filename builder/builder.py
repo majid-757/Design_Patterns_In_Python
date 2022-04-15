@@ -1,3 +1,16 @@
+class Car:
+    def __init__(self):
+        self.__wheel = None
+        self.__engine = None
+        self.__body = None
+
+
+    def setWheel(self, wheel):
+        self.__wheel = wheel
+
+
+
+
 class Builder:
     def getEngine(self):
         pass
