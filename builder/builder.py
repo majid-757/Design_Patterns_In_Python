@@ -1,3 +1,26 @@
+class Director:
+    __builder = None
+
+    def setBuilder(self, builder):
+        self.__builder = builder
+
+    
+    def getCar(self):
+        car = Car()
+
+        body = self.__builder.getBody()
+        car.setBody(body)
+
+        wheel = self.__builder.getWheel()
+        car.setWheel(wheel)
+
+        engine = self.__builder.getEngine()
+        car.setEngine(engine)
+
+        return car
+
+#--------------------------------------------------------
+
 class Car:
     def __init__(self):
         self.__wheel = None
@@ -9,7 +32,20 @@ class Car:
         self.__wheel = wheel
 
 
+    def setBody(self, body):
+        self.__body = body
 
+
+    def setEngine(self, engine):
+        self.__engine = engine
+
+
+    def detail(self):
+        print(f"Body: {self.__body.shape}")
+        print(f"Engine: {self.__engine.hp}")
+        print(f"Wheel: {self.__wheel.size}")
+        
+#--------------------------------------------------------
 
 class Builder:
     def getEngine(self):
@@ -77,10 +113,14 @@ class Body:
 class Engine:
     hp = None
 
+#--------------------------------------------------------
 
+car1 = Bmw()
+director = Director()
+director.setBuilder(car1)
 
-
-
+b1 = director.getCar()
+b1.detail()
 
 
 
